@@ -1,0 +1,10 @@
+4. Note elevi Se doreste dezvoltarea unui program pentru gestiunea notelor obtinute de elevii unei clase de liceu. Programul va avea urmatoarele functionalitati: 
+
+Formatul informatiilor din fiiser este: ...
+
+i. adaugarea unei note la o anumita materie (nr. matricol, materie, nota acordata);  
+ii. calcularea mediilor semestriale pentru fiecare elev (nume, medie),  
+iii. afisarea elevilor coringenti, ordonati descrescator dupa numarul de materii la care nu au promovat ºi alfabetic dupa nume. 
+iii. posibilitatea de a edita media sau datele introduse gresit
+iiii. optiunea de afisare tuturor elevilor
+iiiii. nu exista optiunea de a cauta elevi
