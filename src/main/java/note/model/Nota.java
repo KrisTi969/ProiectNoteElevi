@@ -18,12 +18,17 @@ public class Nota {
 		if(nrmatricol.equals("")) throw new Exception("nrmatricol cannont be null");
 		if(validNrMatricol(nrmatricol)) throw new Exception("Invalid nrmatricol");
 		if(validNota(nota)) throw new Exception("Invalid nota");
-		if(validMaterie(materie)) throw new Exception("Materie has invalid type");
-
+		if(!isAlpha(materie)) {
+            if (MaterieIsInteger(materie)) throw new Exception("Materie has invalid type");
+        }
 		this.setNrmatricol(Integer.parseInt(nrmatricol));
 		this.setMaterie(materie);
 		this.setNota(Integer.parseInt(nota));
 	}
+
+    public boolean isAlpha(String name) {
+        return name.matches("[a-zA-Z]+");
+    }
 
 	private static boolean validNota(String str) {
 		Integer integer;
@@ -32,13 +37,13 @@ public class Nota {
 		}catch (NumberFormatException e) {
 			return true;
 		}
-		if (integer > 10 && integer < 1) {
+		if (integer > 10 || integer < 1) {
 			return true;
 		}
 		return false;
 	}
 
-	private static boolean validMaterie(String str) {
+	private static boolean MaterieIsInteger(String str) {
 		Integer integer;
 		try {
 			integer = Integer.parseInt(str);
@@ -56,7 +61,7 @@ try {
 }catch (NumberFormatException e) {
 	return true;
 }
-		if (integer > 1000 && integer < 1) {
+		if (integer > 1000 || integer < 1) {
 			return true;
 		}
 		return false;
