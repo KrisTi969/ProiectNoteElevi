@@ -157,7 +157,7 @@ public class RepositoryNoteTest {
             assertTrue(true);
         } catch (Exception e) {
             System.out.print(e.toString());
-            System.out.println("Nr matricol has invalid legth(0)");
+            System.out.println("Nr matricol has invalid length(0)");
         }
         int repoSizeBeforeAdd = noteRepository.count();
         try {
@@ -166,6 +166,25 @@ public class RepositoryNoteTest {
             assertTrue(repoSizeBeforeAdd + 1 != noteRepository.count());
         }
     }
+
+    @Test
+    public void addNrMatricolHasValidLegth() throws Exception {
+        try {
+            nota = new Nota("12", "Istorie", "7");
+            assertTrue(true);
+        } catch (Exception e) {
+            System.out.print(e.toString());
+        }
+        int repoSizeBeforeAdd = noteRepository.count();
+        try {
+            noteRepository.addNota(nota);
+            System.out.println("Nr matricol has valid length(2)");
+        } catch (Exception e) {
+            assertTrue(repoSizeBeforeAdd + 1 != noteRepository.count());
+
+        }
+    }
+
 
     @Test
     public void addNrMatricolInvalidLengthMax() throws Exception {
