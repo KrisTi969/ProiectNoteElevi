@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MediiTest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">note.test</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MediiTest (note.test)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MediiTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (31/ 31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package note.test;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import note.model.Elev;
+<i>4</i>&nbsp;import note.model.Nota;
+<i>5</i>&nbsp;import note.repository.ClasaRepositoryMock;
+<i>6</i>&nbsp;import org.junit.Test;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.util.ArrayList;
+<i>9</i>&nbsp;import java.util.HashMap;
+<i>10</i>&nbsp;import java.util.List;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import static org.junit.Assert.assertTrue;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;/**
+<i>15</i>&nbsp; * Created by crys_ on 17.04.2018.
+<i>16</i>&nbsp; */
+<b class="fc"><i>17</i>&nbsp;public class MediiTest {</b>
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    private HashMap&lt;Elev, HashMap&lt;String, List&lt;Double&gt;&gt;&gt; clasa = new HashMap&lt;Elev, HashMap&lt;String, List&lt;Double&gt;&gt;&gt;();</b>
+<i>20</i>&nbsp;
+<b class="fc"><i>21</i>&nbsp;    private ClasaRepositoryMock clasaRepositoryMock = new ClasaRepositoryMock(clasa);</b>
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    @Test
+<i>25</i>&nbsp;    public void NoInputGiven() {
+<b class="fc"><i>26</i>&nbsp;        assertTrue(clasaRepositoryMock.calculeazaMedii().size() == 0);</b>
+<b class="fc"><i>27</i>&nbsp;    }</b>
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    @Test
+<i>30</i>&nbsp;    public void InputGiver(){
+<b class="fc"><i>31</i>&nbsp;        List&lt;Double&gt; ClasaList = new ArrayList&lt;Double&gt;();</b>
+<b class="fc"><i>32</i>&nbsp;        ClasaList.add(4.2);</b>
+<b class="fc"><i>33</i>&nbsp;        ClasaList.add(5.3);</b>
+<b class="fc"><i>34</i>&nbsp;        HashMap&lt;String, List&lt;Double&gt;&gt; Hashuri = new HashMap&lt;String, List&lt;Double&gt;&gt;();</b>
+<i>35</i>&nbsp;
+<b class="fc"><i>36</i>&nbsp;        Hashuri.put(&quot;String1&quot;, ClasaList);</b>
+<b class="fc"><i>37</i>&nbsp;        Hashuri.put(&quot;String2&quot;, ClasaList);</b>
+<i>38</i>&nbsp;
+<b class="fc"><i>39</i>&nbsp;        HashMap&lt;Elev, HashMap&lt;String,List&lt;Double&gt;&gt;&gt; Hashuri2 = new HashMap&lt;Elev, HashMap&lt;String, List&lt;Double&gt;&gt;&gt;();</b>
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;        Hashuri2.put(new Elev(12,&quot;Marc&quot;), Hashuri);</b>
+<b class="fc"><i>42</i>&nbsp;        Hashuri2.put(new Elev(13,&quot;Marc2&quot;), Hashuri);</b>
+<i>43</i>&nbsp;
+<b class="fc"><i>44</i>&nbsp;        clasa = Hashuri2;</b>
+<i>45</i>&nbsp;
+<b class="fc"><i>46</i>&nbsp;        clasaRepositoryMock = new ClasaRepositoryMock(clasa);</b>
+<i>47</i>&nbsp;
+<b class="fc"><i>48</i>&nbsp;        assertTrue(clasaRepositoryMock.calculeazaMedii().size() == 2);</b>
+<b class="fc"><i>49</i>&nbsp;    }</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    @Test
+<i>52</i>&nbsp;    public void noNoteForInput(){
+<b class="fc"><i>53</i>&nbsp;        List&lt;Double&gt; ClasaList = new ArrayList&lt;Double&gt;();</b>
+<b class="fc"><i>54</i>&nbsp;        ClasaList.add(4.2);</b>
+<b class="fc"><i>55</i>&nbsp;        ClasaList.add(5.3);</b>
+<b class="fc"><i>56</i>&nbsp;        HashMap&lt;String, List&lt;Double&gt;&gt; Hashuri = new HashMap&lt;String, List&lt;Double&gt;&gt;();</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        Hashuri.put(&quot;String1&quot;, ClasaList);</b>
+<b class="fc"><i>59</i>&nbsp;        Hashuri.put(&quot;String2&quot;, ClasaList);</b>
+<i>60</i>&nbsp;
+<b class="fc"><i>61</i>&nbsp;        HashMap&lt;Elev, HashMap&lt;String,List&lt;Double&gt;&gt;&gt; Hashuri2 = new HashMap&lt;Elev, HashMap&lt;String, List&lt;Double&gt;&gt;&gt;();</b>
+<i>62</i>&nbsp;
+<b class="fc"><i>63</i>&nbsp;        Hashuri2.put(new Elev(12,&quot;Marc&quot;), Hashuri);</b>
+<b class="fc"><i>64</i>&nbsp;        Hashuri2.put(new Elev(13,&quot;Marc2&quot;), Hashuri);</b>
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;        clasa = Hashuri2;</b>
+<i>67</i>&nbsp;
+<b class="fc"><i>68</i>&nbsp;        clasaRepositoryMock = new ClasaRepositoryMock(clasa);</b>
+<i>69</i>&nbsp;
+<b class="fc"><i>70</i>&nbsp;        assertTrue(clasaRepositoryMock.calculeazaMedii().size() == 2);</b>
+<b class="fc"><i>71</i>&nbsp;    }</b>
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-04-23 11:40</div>
+</div>
+</body>
+</html>
