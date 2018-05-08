@@ -144,6 +144,9 @@ public class TopDownIntegrationTest {
 
         assertTrue(clasaRepositoryMock.calculeazaMedii().size() == 2);
 
+
+
+
         try {
             nota = new Nota(43, "Istorie", 7);
         } catch (Exception e) {
